@@ -16,7 +16,7 @@ addNumber: adds a number to the list and updates the total. Synchronous to ensur
 getTotal: returns the total sum of numbers.
 getNumList: returns the list of numbers.
 main: Main method that starts the RMI registration and binds the server instance to the name "Server".
- */
+*/
 
 // The Server class implements the remote interface NumberManager and extends UnicastRemoteObject
 public class Server extends UnicastRemoteObject implements NumberManager {
@@ -34,6 +34,7 @@ public class Server extends UnicastRemoteObject implements NumberManager {
     public synchronized void addNumber(int number) throws RemoteException {
         numList.add(number); // Add number to the list
         total += number; // Add number to the total
+        System.out.println("Number added: " + number + " | New total: " + total); // Log the number and total
     }
 
     // Method to return the total sum of numbers

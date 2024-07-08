@@ -13,35 +13,38 @@ Random: Initializes a random number generator.
 Number Generation: Continuously generates random numbers between 0 and 12, sending them to the server until the total reaches 1 million.
 Delay: Waits 10 milliseconds before generating the next number to simulate concurrency.
 Print: Prints the total and list of numbers when the total reaches 1 million.
- */
+*/
 
-// The Client class connects to the server -> then generates random numbers
+// The Client class connects to the server and generates random numbers
 public class Client {
     public static void main(String[] args) {
         try {
-            // Connect to the RMI registry to localhost (port: 1099)
+            // Connect to the RMI registry on localhost at port 1099
             Registry registry = LocateRegistry.getRegistry("localhost", 1099);
 
             // Lookup the remote object "NumberManager" in the registry
             NumberManager server = (NumberManager) registry.lookup("NumberManager");
 
-            // Starts a random number generator
+            // Initialize a random number generator
             Random random = new Random();
-            int count = 0;
+            int clientCount = 0;
 
-            /* Generate random numbers (continuously) until the total reaches 1 million */
-            while (server.getTotal() < 1000000) {
+            // Continuously generate random numbers until the total on the server reaches 1 million
+            while (server.getTotal() < 1000) { // Change this to 100000, 1000 is for testing
                 int number = random.nextInt(13); // Generate a random number between 0 and 12
                 server.addNumber(number); // Send the number to the server
-                count++;
-                Thread.sleep(10); // Wait for 10 milliseconds** before generating the next number
+                clientCount++;
+                System.out.println("Generated number: " + number + " | Client Count: " + clientCount); // Log the generated number and count
+
+                // Wait for 10 milliseconds before generating the next number
+                Thread.sleep(10);
             }
 
             // Print the total and the list of numbers once the total reaches 1 million
             System.out.println("Total reached: " + server.getTotal());
             System.out.println("Number list: " + server.getNumList());
         } catch (Exception e) {
-            e.printStackTrace(); // Print stack trace if there is an error (handling exceptions)
+            e.printStackTrace(); // Print stack trace if there's an error
         }
     }
 }
