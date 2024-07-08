@@ -4,16 +4,13 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
 
-//Defines the methods that can be called remotely by clients.
+// Defines the methods that can be called remotely by clients.
 
 // The NumberManager interface defines the methods that can be invoked remotely
 public interface NumberManager extends Remote {
-    // Method to add a number to the list and update the total
-    void addNumber(int number) throws RemoteException;
-
-    // Method to get the current total sum of numbers
+    void addNumber(int number, String clientId) throws RemoteException;
     int getTotal() throws RemoteException;
-
-    // Method to get the list of numbers
     List<Integer> getNumList() throws RemoteException;
+    void incrementClientCount() throws RemoteException;
+    int getClientCount() throws RemoteException;
 }
