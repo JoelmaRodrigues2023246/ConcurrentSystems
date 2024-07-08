@@ -7,6 +7,17 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+Server Class:
+numList: List that stores the generated numbers.
+total: Variable that stores the total sum of numbers.
+Constructor: Initializes numList and total.
+addNumber: adds a number to the list and updates the total. Synchronous to ensure thread safety.
+getTotal: returns the total sum of numbers.
+getNumList: returns the list of numbers.
+main: Main method that starts the RMI registration and binds the server instance to the name "Server".
+ */
+
 // The Server class implements the remote interface NumberManager and extends UnicastRemoteObject
 public class Server extends UnicastRemoteObject implements NumberManager {
     private List<Integer> numList; // List to store generated numbers
@@ -41,7 +52,7 @@ public class Server extends UnicastRemoteObject implements NumberManager {
     public static void main(String[] args) {
         try {
             Server server = new Server(); // Create a new server instance
-            Registry registry = LocateRegistry.createRegistry(1099); // Create RMI registry on port 1099
+            Registry registry = LocateRegistry.createRegistry(1099); // Create RMI registry (port: 1099)
             registry.rebind("NumberManager", server); // Bind the server instance to the name "NumberManager"
             System.out.println("Server is ready."); // Indicate that the server is ready
         } catch (Exception e) {

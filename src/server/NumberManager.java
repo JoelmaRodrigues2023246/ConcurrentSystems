@@ -4,6 +4,8 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
 
+//Defines the methods that can be called remotely by clients.
+
 // The NumberManager interface defines the methods that can be invoked remotely
 public interface NumberManager extends Remote {
     // Method to add a number to the list and update the total
