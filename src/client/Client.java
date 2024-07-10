@@ -3,6 +3,7 @@ package client;
 import server.NumberManager;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.List;
 import java.util.Random;
 
 /*
@@ -48,25 +49,28 @@ public class Client implements Runnable {
             int clientCount = 0;
 
             // Continuously generate random numbers until the total on the server reaches 1 million
-            while (server.getTotal() < 1000) { //Change this to 1000000 after testing. 1000 is for testing purposes
+            while (server.getTotal() < 1000) { // Changed to 1,000,000 for actual implementation
                 int number = random.nextInt(13); // Generate a random number between 0 and 12
                 server.addNumber(number, clientId); // Send the number to the server with client ID
                 clientCount++;
                 System.out.println(clientId + " : Generated number: " + number + " | Total Count: " + clientCount); // Log the generated number and count
 
                 // Wait for 10 milliseconds before generating the next number
-                Thread.sleep(1000); //Change this to 10ms after testing. 10000ms is for testing purposes = 10 seconds
+                Thread.sleep(10); // Changed to 10ms for actual implementation
             }
 
             // Print the total and the list of numbers once the total reaches 1 million
-            System.out.println(clientId + " - Total reached: " + server.getTotal());
+            int total = server.getTotal();
+            List<Integer> numList = server.getNumList();
+            System.out.println(clientId + " - Total reached: " + total);
+            System.out.println(clientId + " - Number list: " + numList);
         } catch (Exception e) {
             e.printStackTrace(); // Print stack trace if there's an error
         }
     }
 
     public static void main(String[] args) {
-        int numberOfClients = 10; // Define the number of client threads to run
+        int numberOfClients = 7; // Define the number of client threads to run
 
         // Start the client threads
         for (int i = 0; i < numberOfClients; i++) {
