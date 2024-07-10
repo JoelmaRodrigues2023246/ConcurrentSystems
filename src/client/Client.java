@@ -48,8 +48,8 @@ public class Client implements Runnable {
             Random random = new Random();
             int clientCount = 0;
 
-            // Continuously generate random numbers until the total on the server reaches 1 million
-            while (server.getTotal() < 1000) { // Changed to 1,000,000 for actual implementation
+            // Continuously generate random numbers until the total on the server reaches 1000 (for testing)
+            while (server.getTotal() < 1000) { // Change to 1,000,000 for actual implementation
                 int number = random.nextInt(13); // Generate a random number between 0 and 12
                 server.addNumber(number, clientId); // Send the number to the server with client ID
                 clientCount++;
@@ -59,7 +59,7 @@ public class Client implements Runnable {
                 Thread.sleep(10); // Changed to 10ms for actual implementation
             }
 
-            // Print the total and the list of numbers once the total reaches 1 million
+            // Print the total and the list of numbers once the total reaches 1000 (for testing)
             int total = server.getTotal();
             List<Integer> numList = server.getNumList();
             System.out.println(clientId + " - Total reached: " + total);
@@ -70,11 +70,13 @@ public class Client implements Runnable {
     }
 
     public static void main(String[] args) {
-        int numberOfClients = 7; // Define the number of client threads to run
-
-        // Start the client threads
-        for (int i = 0; i < numberOfClients; i++) {
-            new Thread(new Client("Client " + (i + 1))).start();
+        // Check if a client ID is provided as an argument
+        if (args.length < 1) {
+            System.err.println("Please provide a client ID as an argument.");
+            System.exit(1);
         }
+
+        String clientId = args[0]; // Use the provided client ID
+        new Thread(new Client(clientId)).start(); // Start the client with the provided ID
     }
 }
