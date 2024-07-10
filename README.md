@@ -119,13 +119,11 @@ This project is part of the Concurrent Systems course. It demonstrates key conce
 2. **Start the Clients:**
     - Run the `Client` class multiple times, each with a unique identifier as a program argument (e.g., `Client-1`, `Client-2`, etc.).
 
-## Example Commands
+### Example Commands
 
-### Start the server
 ```sh
 # Start the server
-java -cp . server.Server
-
+java server.Server
 
 # Start clients with unique IDs
 java client.Client Client-1

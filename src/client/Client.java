@@ -49,7 +49,7 @@ public class Client implements Runnable {
             int clientCount = 0;
 
             // Continuously generate random numbers until the total on the server reaches 1000 (for testing)
-            while (server.getTotal() < 1000) { // Change to 1,000,000 for actual implementation
+            while (server.getTotal() < 10000) { // Change to 1,000,000 for actual implementation
                 int number = random.nextInt(13); // Generate a random number between 0 and 12
                 server.addNumber(number, clientId); // Send the number to the server with client ID
                 clientCount++;
