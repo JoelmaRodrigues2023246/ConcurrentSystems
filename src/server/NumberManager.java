@@ -6,7 +6,7 @@ import java.util.List;
 
 // Defines the methods that can be called remotely by clients.
 
-// The NumberManager interface defines the methods that can be invoked remotely
+// The NumberManager interface defines the methods that can be called remotely
 public interface NumberManager extends Remote {
     void addNumber(int number, String clientId) throws RemoteException;
     int getTotal() throws RemoteException;

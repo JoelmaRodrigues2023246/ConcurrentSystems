@@ -6,7 +6,7 @@ import java.rmi.registry.Registry;
 import java.util.Random;
 
 /*
-Client:
+Client Class:
 Registry: Connects to the RMI registry on localhost on port 1099.
 NumberManager: Looks up the remote NumberManager object in the registry.
 Random: Initializes a random number generator.
@@ -17,8 +17,9 @@ Print: Prints the total and list of numbers when the total reaches 1 million.
 
 // The Client class connects to the server and generates random numbers
 public class Client implements Runnable {
-    private String clientId;
+    private String clientId; // Variable to store the unique identifier of the client
 
+    // Constructor to set the client ID
     public Client(String clientId) {
         this.clientId = clientId;
     }
@@ -67,6 +68,7 @@ public class Client implements Runnable {
     public static void main(String[] args) {
         int numberOfClients = 10; // Define the number of client threads to run
 
+        // Start the client threads
         for (int i = 0; i < numberOfClients; i++) {
             new Thread(new Client("Client " + (i + 1))).start();
         }

@@ -12,11 +12,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 Server Class:
 numList: List that stores the generated numbers.
 total: Variable that stores the total sum of numbers.
-Constructor: Initializes numList and total.
-addNumber: adds a number to the list and updates the total. Synchronous to ensure thread safety.
-getTotal: returns the total sum of numbers.
-getNumList: returns the list of numbers.
-main: Main method that starts the RMI registration and binds the server instance to the name "Server".
+clientCount: Counts the number of connected clients.
+Constructor: Initializes numList, total, and clientCount.
+addNumber: Adds a number to the list and updates the total. Synchronized to ensure thread safety.
+getTotal: Returns the total sum of numbers.
+getNumList: Returns the list of numbers.
+incrementClientCount: Increments the count of connected clients.
+getClientCount: Returns the current count of connected clients.
+main: Main method that starts the RMI registry and binds the server instance to the name "NumberManager".
 */
 
 // The Server class implements the remote interface NumberManager and extends UnicastRemoteObject
@@ -55,18 +58,18 @@ public class Server extends UnicastRemoteObject implements NumberManager {
     // Method to increment the client count
     @Override
     public synchronized void incrementClientCount() throws RemoteException {
-        int currentCount = clientCount.incrementAndGet();
+        int currentCount = clientCount.incrementAndGet(); // Increment client count atomically
         System.out.println("Client connected. Total clients: " + currentCount); // Log the client count
 
         if (currentCount >= 5) {
-            System.out.println("At least 5 clients connected. Starting number generation...");
+            System.out.println("At least 5 clients connected. Starting number generation..."); // Log when at least 5 clients are connected
         }
     }
 
     // Method to get the client count
     @Override
     public int getClientCount() throws RemoteException {
-        return clientCount.get();
+        return clientCount.get(); // Return the current count of connected clients
     }
 
     // Main method to start the RMI registry and bind the server instance
