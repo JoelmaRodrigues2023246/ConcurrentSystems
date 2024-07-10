@@ -1,4 +1,4 @@
-# Task Assessment - Concurrent Systems Project
+# Concurrent Systems Project
 
 This project demonstrates a client-server architecture using Java RMI to generate and sum a series of randomly generated integers. The project follows the requirements outlined in the task assessment and includes code snippets for each completed task.
 
@@ -131,3 +131,13 @@ java client.Client Client-2
 java client.Client Client-3
 java client.Client Client-4
 java client.Client Client-5
+
+```
+
+## Demonstration Video
+
+[![Watch the video](src/assets/video_thumbnail.jpg)](src/assets/demo_video.mp4)
+
+Click on the image above to watch the demonstration video.
+
+Note: The test was conducted with a limit of 10,000 for faster testing. To learn more about the reasoning and calculations, see [Demonstration Limits](DEMONSTRATION_LIMITS.md).
