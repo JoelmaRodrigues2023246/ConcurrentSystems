@@ -149,12 +149,12 @@ Note: The test was conducted with a limit of 10,000 for faster testing. To learn
 - Harold, E. R., 2013. *Java Network Programming*. 4th ed. O'Reilly Media.
 - Lea, D., 2000. *Concurrent Programming in Java: Design Principles and Patterns*. 2nd ed. Addison-Wesley.
 - Chidamber, M. and Kemerer, C., 1994. A Study on the Performance of Java RMI. *ACM Transactions on Software Engineering and Methodology*, 3(3), pp.173-213.
-- Oracle, 2023. *Java RMI Documentation*. [online] Available at: <https://docs.oracle.com/javase/8/docs/technotes/guides/rmi/index.html> [Accessed 9 July 2024].
+- Oracle, 2023. *Java RMI Documentation*. [online] Available at: <https://docs.oracle.com/javase/8/docs/technotes/guides/rmi/index.html> [Accessed 8 July 2024].
 - Kelly, P. H. J., 1998. Concurrent Systems: An Overview. *IEEE Software*, 15(3), pp.47-56.
 - Gong, L., 1997. Design and Implementation of Client-Server Systems Using Java RMI. *IEEE Internet Computing*, 1(5), pp.60-68.
 
 ### Videos
 
-- ThenisH, 2021. *Java socket programming - Simple client server program*. [video] Available at: <https://www.youtube.com/watch?v=-xKgxqG411c> [Accessed 9 July 2024].
-- Coding with John, 2020. *Multithreading in Java Explained in 10 Minutes*. [video] Available at: <https://www.youtube.com/watch?v=r_MbozD32eo> [Accessed 9 July 2024].
-- Starter Tutorials, 2021. *10 RMI Client Server Application using Java*. [video] Available at: <https://www.youtube.com/watch?v=Z8lRP6IyIE0> [Accessed 9 July 2024].
+- ThenisH, 2021. *Java socket programming - Simple client server program*. [video] Available at: <https://www.youtube.com/watch?v=-xKgxqG411c> [Accessed 6 July 2024].
+- Coding with John, 2020. *Multithreading in Java Explained in 10 Minutes*. [video] Available at: <https://www.youtube.com/watch?v=r_MbozD32eo> [Accessed 7 July 2024].
+- Starter Tutorials, 2021. *10 RMI Client Server Application using Java*. [video] Available at: <https://www.youtube.com/watch?v=Z8lRP6IyIE0> [Accessed 6 July 2024].
