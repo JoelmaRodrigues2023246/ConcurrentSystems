@@ -15,6 +15,7 @@
     }
     if (server.getTotal() >= 1000000) {
         int total = server.getTotal();
+    
         List<Integer> numList = server.getNumList();
         System.out.println(clientId + " - Total reached: " + total);
         System.out.println(clientId + " - Number list: " + numList);
